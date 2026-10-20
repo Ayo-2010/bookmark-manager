@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bookmark Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="strip" aria-hidden="true">
+    <span class="strip-mark">BM</span>
+    <span class="strip-word">Library</span>
+  </div>
+
+  <main class="board">
+    <header class="board-head">
+      <div>
+        <h1>Bookmark Manager</h1>
+        <p id="count" class="count">0 bookmarks · 0 tags</p>
+      </div>
+      <div class="io">
+        <button id="exportBtn" class="btn ghost">Export</button>
+        <label class="btn ghost file">
+          Import
+          <input type="file" id="importFile" accept="application/json,.json">
+        </label>
+      </div>
+    </header>
+
+    <section class="editor">
+      <div class="editor-grid">
+        <div class="field">
+          <label for="title">Title</label>
+          <input id="title" type="text" placeholder="Design systems weekly">
+        </div>
+        <div class="field">
+          <label for="url">URL</label>
+          <input id="url" type="text" placeholder="example.com/article">
+        </div>
+        <div class="field wide">
+          <label for="tags">Tags</label>
+          <input id="tags" type="text" placeholder="design, reading, tools">
+        </div>
+      </div>
+      <div class="editor-actions">
+        <button id="addBtn" class="btn primary">Add bookmark</button>
+        <button id="cancelEdit" class="btn ghost" hidden>Cancel</button>
+        <p id="error" class="error" hidden></p>
+      </div>
+      <p class="hint">Press <kbd>Enter</kbd> to add · <kbd>Esc</kbd> to cancel editing.</p>
+    </section>
+
+    <section class="toolbar">
+      <input id="search" class="search" type="search" placeholder="Search title, host or tag">
+      <select id="sortBy" aria-label="Sort bookmarks">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="title">Title A to Z</option>
+      </select>
+    </section>
+
+    <div id="tagFilters" class="tag-filters"></div>
+
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty" hidden>No bookmarks yet. Add your first one above.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
